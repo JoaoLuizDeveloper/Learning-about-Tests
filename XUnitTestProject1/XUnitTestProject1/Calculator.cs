@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculations
+namespace XUnitTestProject1
 {
     public class Calculator
     {
@@ -10,7 +10,7 @@ namespace Calculations
         {
             return a + b;
         }
-        
+
         public double AddDouble(double a, double b)
         {
             return a + b;
