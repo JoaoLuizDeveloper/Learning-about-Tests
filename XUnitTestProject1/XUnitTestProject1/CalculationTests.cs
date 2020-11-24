@@ -8,6 +8,37 @@ namespace XUnitTestProject1
     public class CalculationTests
     {
         [Fact]
+        public void FiboDoesNotIncludeZero()
+        {
+            var calc = new Calculations();
+            Assert.All(calc.FiboNumbers, n => Assert.NotEqual(0, n));
+        }
+        
+        [Fact]
+        public void FiboIncludes13()
+        {
+            var calc = new Calculations();
+            Assert.Contains(13, calc.FiboNumbers);
+        }
+        
+        [Fact]
+        public void CheckCollection()
+        {
+            var calc = new Calculations();
+            var expectCollection = new List<int>() { 1, 1, 2, 3, 5, 8, 13 };
+            Assert.Equal(expectCollection, calc.FiboNumbers);
+        }
+        
+        [Fact]
+        public void FiboDoesNotContain4()
+        {
+            var calc = new Calculations();
+            Assert.DoesNotContain(4, calc.FiboNumbers);
+        }
+
+
+
+        [Fact]
         public void Add_GivenTwoIntValues_ReturnsInt()
         {
             var calc = new Calculator();
