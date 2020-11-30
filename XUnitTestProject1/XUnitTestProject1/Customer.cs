@@ -15,6 +15,11 @@ namespace XUnitTestProject1
             return 100;
         }
         public int Age => 35;
+
+        public string GetFullName (string FirstName, string LastName)
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 
     public class LoyalCustomer : Customer

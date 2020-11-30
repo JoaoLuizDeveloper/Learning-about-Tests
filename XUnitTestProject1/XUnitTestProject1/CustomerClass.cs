@@ -5,6 +5,7 @@ using Xunit;
 
 namespace XUnitTestProject1
 {
+    [Collection("Customer")]
     public class CustomerClass
     {
         //[Fact]
@@ -15,17 +16,24 @@ namespace XUnitTestProject1
         //    Assert.False(string.IsNullOrEmpty(customer.Name));
         //}
 
+        private readonly CustomerFixture _custumerFix;
+
+        public CustomerClass(CustomerFixture customerFixture)
+        {
+            _custumerFix = customerFixture;
+        }
+
         [Fact]
         public void CheckLegiForDiscount()
         {
-            var customer = new Customer();
+            var customer = _custumerFix.Cust;
             Assert.InRange(customer.Age, 25, 40);
         }
 
         [Fact]
         public void GetOrdersByNameNotNull()
         {
-            var custumer = new Customer();
+            var custumer = _custumerFix.Cust;
             var exceptdetails =  Assert.Throws<ArgumentException>(() => custumer.GetOrdersByName(""));
             //exceptdetails.Message;
             Assert.Equal("Hello", exceptdetails.Message);

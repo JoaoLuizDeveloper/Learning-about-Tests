@@ -10,7 +10,7 @@ namespace XUnitTestProject1
 
         public string MakeFullName(string FirstName, string LastName)
         {
-            return $"{ FirstName}-{LastName}";
+            return $"{ FirstName} {LastName}";
         }
     }
 }
