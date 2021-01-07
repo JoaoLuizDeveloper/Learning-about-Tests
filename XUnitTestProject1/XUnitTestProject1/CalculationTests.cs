@@ -71,7 +71,74 @@ namespace XUnitTestProject1
             var expectCollection = new List<int>() { 1, 1, 2, 3, 5, 8, 13 };
             Assert.Equal(expectCollection, calc.FiboNumbers);
         }
+
+        [Fact]
+        public void Is0dd_Given0ddValue_ReturnsTrue()
+        {
+            var calc = new Calculations();
+
+            var result = calc.is0dd(1);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void Is0dd_GivenEvenValue_ReturnsFalse()
+        {
+            var calc = new Calculations();
+
+            var result = calc.is0dd(1);
+
+            Assert.False(result);
+        }
+
+        //To test similars methods it will be executed twice cuz you have 2 InlineData
+        //[Theory]
+        //[InlineData(1,true)]
+        //[InlineData(200, false)]
+        //public void Is0dd_Test0ddAndEven(int value, bool expected)
+        //{
+        //    var calc = new Calculations();
+
+        //    var result = calc.is0dd(value);
+
+        //    Assert.True(result);
+        //}
         
+        //[Theory]
+        //[MemberData(nameof(TestDataShare.Is0dd0rEvenData), MemberType = typeof(TestDataShare))]
+        //public void Is0dd_Test0ddAndEven(int value, bool expected)
+        //{
+        //    var calc = new Calculations();
+
+        //    var result = calc.is0dd(value);
+
+        //    Assert.True(result);
+        //}
+        
+        //[Theory]
+        //[MemberData(nameof(TestDataShare.Is0dd0rEvenExternalData), MemberType = typeof(TestDataShare))]
+        //public void Is0dd_Test0ddAndEven(int value, bool expected)
+        //{
+        //    var calc = new Calculations();
+
+        //    var result = calc.is0dd(value);
+
+        //    Assert.True(expected);
+        //}
+        
+        [Theory]
+        [IsOddOrEvenData]
+        public void Is0dd_Test0ddAndEven(int value, bool expected)
+        {
+            var calc = new Calculations();
+
+            var result = calc.is0dd(value);
+
+            Assert.True(expected);
+        }
+
+
         [Fact]
         public void FiboDoesNotContain4()
         {
